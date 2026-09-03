@@ -43,7 +43,7 @@
 
 
 import {cart} from '../javascript-amazon-project/data/cart.js'; 
-
+import {products} from '../javascript-amazon-project/data/products.js';
 let productsHTML = '';
 
 products.forEach((product) => {
