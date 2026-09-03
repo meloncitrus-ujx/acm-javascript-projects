@@ -42,8 +42,7 @@
 // WRITE YOUR CODE BELOW:
 
 
-
-
+import {cart} from '../javascript-amazon-project/data/cart.js'; 
 
 let productsHTML = '';
 
