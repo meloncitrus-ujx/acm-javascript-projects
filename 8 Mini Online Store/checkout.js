@@ -12,13 +12,14 @@ cart.forEach((cartItem) => {
   let matchingProduct; 
    
   products.forEach((product) => {
-    if (product.id=== productId) {
+    if (product.id === productId) {
       matchingProduct = product; 
     }
 
   });
 
-  
+  console.log(dayjs()); 
+
 cartSummaryHTML += 
   `<div class="cart-item-container 
   js-cart-item-container-${matchingProduct.id}">
@@ -70,7 +71,7 @@ cartSummaryHTML +=
                 <div class="delivery-option">
                   <input type="radio"
                     class="delivery-option-input"
-                    name="delivery-option-">
+                    name="delivery-option-${matchingProduct.id}">
                   <div>
                     <div class="delivery-option-date">
                       Wednesday, June 15
