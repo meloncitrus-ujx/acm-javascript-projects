@@ -13,3 +13,17 @@ export const deliveryOptions = [{
 
 
 }]; 
+
+
+export function getDeliveryOption(deliveryOptionId) {
+  let deliveryOption; 
+  deliveryOptions.forEach((option) => {
+    if (option.id === deliveryOptionId) {
+      deliveryOption = option; 
+    }
+  });
+return deliveryOption || deliveryOptions[0]; 
+
+//to give delivery options a default value (first value) and or is a default operarator 
+
+}
