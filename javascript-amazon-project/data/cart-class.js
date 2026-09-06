@@ -2,17 +2,17 @@ import { addToCart } from "./cart.js";
 
 class Cart {
   cartItems; 
-  localStorageKey; 
+  #localStorageKey; 
 
   constructor(localStorageKey) {
-      this.localStorageKey = 'localeStorageKey';
-      this.loadFromStorage();
+      this.#localStorageKey = 'localeStorageKey';
+      this.#loadFromStorage();
       // wont be called cart everytime. hence use this. points to object we generate
 
   }
 
-loadFromStorage() {
-this.cartItems = JSON.parse(localStorage.getItem('this.localeStorageKey'));
+#loadFromStorage() {
+this.cartItems = JSON.parse(localStorage.getItem('this.#localeStorageKey'));
 
 if (!this.cartItems) { 
 this.cartItems = [{ 
@@ -28,7 +28,7 @@ this.cartItems = [{
 }
 
 saveToStorage() { 
-  localStorage.setItem('this.localStorageKey', JSON.stringify(this.cartItems));
+  localStorage.setItem('this.#localStorageKey', JSON.stringify(this.cartItems));
 
 }
 
