@@ -57,6 +57,20 @@ class Clothing extends Product {
 }
 
 
+/*const date = new Date();
+console.log(date.toLocaleTimeString()); */
+
+/*console.log(this);
+const obj2 = {
+    a: 2,
+    b: this.a
+};
+//wont work since obj2 hasnt been defined or used anywhere */
+
+/* rules for this: 
+1) inside a method, it points to outer method
+2) inside a fn, this = undefined (but can change it by using .call())
+3) arrow fn do not change value of this  */
 
 export const products = [
   {
