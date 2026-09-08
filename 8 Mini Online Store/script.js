@@ -43,9 +43,13 @@
 
 
 import {cart, addToCart} from '../../javascript-amazon-project/data/cart.js'; 
-import {products} from '../../javascript-amazon-project/data/products.js';
+import {products, loadProducts} from '../../javascript-amazon-project/data/products.js';
 import {formatCurrency} from './utils/money.js'  ; 
 
+loadProducts(renderProductsGrid); 
+
+
+function renderProductsGrid(){ 
 
 let productsHTML = '';
 
@@ -127,3 +131,4 @@ document.querySelectorAll('.js-add-to-cart').forEach((button) => {
            updateCartQuantity();
  } );
 });
+}
