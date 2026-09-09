@@ -6,6 +6,15 @@ import { loadCart } from "../../javascript-amazon-project/data/cart.js";
 // import '../../javascript-amazon-project/data/backend-practise.js';
 
 
+async function loadPage(){
+    console.log('load page');
+    return 'value2';
+}
+loadPage().then((value)=> {
+    console.log('next step');
+    console.log(value);
+});
+
 Promise.all([
     loadProductsFetch(),
     new Promise((resolve) => {
