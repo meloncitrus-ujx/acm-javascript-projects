@@ -1,18 +1,13 @@
 import { renderOrderSummary } from "./checkout/orderSummary.js";
 import { renderPaymentSummary } from "./checkout/paymentSummary.js";
-import { loadProducts } from "../../javascript-amazon-project/data/products.js";
+import { loadProducts, loadProductsFetch } from "../../javascript-amazon-project/data/products.js";
 import { loadCart } from "../../javascript-amazon-project/data/cart.js";
 // import '../../javascript-amazon-project/data/cart-class.js';
 // import '../../javascript-amazon-project/data/backend-practise.js';
 
 
 Promise.all([
-    new Promise((resolve)=> {
-        loadProducts(()=> {
-            resolve('value1');
-        });
-
-    }),
+    loadProductsFetch(),
     new Promise((resolve) => {
         loadCart(()=> {
             resolve();
