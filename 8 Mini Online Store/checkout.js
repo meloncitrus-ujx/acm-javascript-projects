@@ -7,14 +7,20 @@ import { loadCart } from "../../javascript-amazon-project/data/cart.js";
 
 
 async function loadPage(){
-    console.log('load page');
-    return 'value2';
-}
-loadPage().then((value)=> {
-    console.log('next step');
-    console.log(value);
-});
+    await loadProductsFetch();
+    
+    await new Promise((resolve) => {
+        loadCart(()=> {
+            resolve();
+        });
+    });
 
+    renderOrderSummary();
+    renderPaymentSummary();
+}
+loadPage();
+
+/*
 Promise.all([
     loadProductsFetch(),
     new Promise((resolve) => {
@@ -28,7 +34,7 @@ Promise.all([
     renderOrderSummary();
     renderPaymentSummary();
 });
-
+*/
 
 
 /*
