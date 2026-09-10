@@ -7,14 +7,21 @@ import { loadCart } from "../../javascript-amazon-project/data/cart.js";
 
 
 async function loadPage(){
-    await loadProductsFetch();
+    try {
+        //throw 'error1';
+        await loadProductsFetch();
     
-    await new Promise((resolve) => {
+        const value = await new Promise((resolve,reject) => {
+        //throw 'error2' 
         loadCart(()=> {
-            resolve();
-        });
+        //reject('error3');
+        resolve('value3');
     });
-
+});
+    } catch (error) {
+        console.log('error');
+    }
+    
     renderOrderSummary();
     renderPaymentSummary();
 }
