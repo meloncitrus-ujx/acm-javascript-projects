@@ -39,3 +39,21 @@
 */
 
 // WRITE YOUR CODE BELOW:
+const decrease = document.getElementById("decrementbtn");
+const reset = document.getElementById("resetbtn");
+const increase = document.getElementById("incrementbtn");
+const label = document.getElementById("countlabel"); 
+let count = 0; 
+
+increase.onclick = function(){
+    count++; 
+    label.textContent = count;
+}
+decrease.onclick = function(){
+    count--; 
+    label.textContent = count;
+}
+reset.onclick = function(){
+    count=0; 
+    label.textContent = count;
+}
