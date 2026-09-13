@@ -34,3 +34,27 @@
 */
 
 // WRITE YOUR CODE BELOW:
+
+import { clearvalue } from "../1 Interactive Counter - Temperature Converter/function.js";
+console.log(clearvalue);
+   clearvalue(numofdice);
+
+function rollDice(){
+   const numofdice = document.getElementById("numofdice");
+   const diceresult = document.getElementById("result");
+   const diceimages = document.getElementById("images");
+   const values =[];
+   const images =[];
+
+
+   for(let i = 0; i < numofdice.value; i++) {
+      const value = Math.floor(Math.random() * 6) + 1;
+      values.push(value);
+      images.push(`<img src="../../images/dice${value}.png" alt="Dice ${value}"> `);
+      //alternative if image doesnt load, good for troubleshooting
+   }
+
+   diceresult.textContent = `dice: ${values.join(', ')}`;
+   diceimages.innerHTML = images.join('');
+}
+document.querySelector('.js-btn').addEventListener('click', rollDice);

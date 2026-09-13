@@ -39,6 +39,11 @@
 */
 
 // WRITE YOUR CODE BELOW:
+
+import { clearvalue } from "./function.js";
+//DONT FUCKING FORGET THE .JS OHMYGOD 
+
+console.log('working');
 const decrease = document.getElementById("decrementbtn");
 const reset = document.getElementById("resetbtn");
 const increase = document.getElementById("incrementbtn");
@@ -64,14 +69,9 @@ const tocels = document.getElementById("tocels");
 const result = document.getElementById("result");
 let temp; 
 
-function clearvalue(){
-    textbox.addEventListener("click" , function() {
-    if (textbox.value!=""){
-        textbox.value="";   
-    }
-});
-}
-clearvalue();
+
+clearvalue(textbox);
+
 
 function convert(){
         if (tofaren.checked){
@@ -88,6 +88,6 @@ function convert(){
         }
         else {
             result.textContent="select a unit";
-        }
-        
+        }     
 }
+document.querySelector('.submitbtn').addEventListener('click', convert); 
