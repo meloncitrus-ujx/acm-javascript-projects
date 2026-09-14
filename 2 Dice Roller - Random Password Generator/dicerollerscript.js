@@ -58,3 +58,42 @@ function rollDice(){
    diceimages.innerHTML = images.join('');
 }
 document.querySelector('.js-btn').addEventListener('click', rollDice);
+
+//PASSWORD
+
+function generatepswrd(length, includeLower, includeUpper, includeNum, includeSymbols) {
+      const lowerchars = 'abcdefghijklmnopqrstuvwxyz'; 
+      const upperchars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+      const numchars = '01234567890';
+      const symbolchars = '!@#$%^&*()_+-=';
+      
+      let allowedchars = '';
+      let pswrd = '';
+
+      allowedchars += includeLower ? lowerchars : '';
+      allowedchars += includeUpper ? upperchars : '';
+      allowedchars += includeNum ? numchars : '';
+      allowedchars += includeSymbols ? symbolchars : '';
+
+      if(length <= 0){
+         return `(password length must be atleast 1)`;
+      }
+      if (allowedchars.length === 0){
+         return `(Atleast 1 set of character needs to be selected)`; 
+      }
+
+      for ( let i = 0 ; i < length; i++){
+         const randomIndex = Math.floor(Math.random() * allowedchars.length);
+         pswrd += allowedchars[randomIndex];
+      }
+
+      return pswrd;
+}
+const pswrdlength = 12;
+const includeLower = true; 
+const includeUpper = true; 
+const includeNum = true; 
+const includeSymbols = true; 
+
+const pswrd = generatepswrd(pswrdlength, includeLower, includeUpper, includeNum, includeSymbols); 
+console.log(pswrd);
