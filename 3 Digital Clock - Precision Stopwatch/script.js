@@ -43,12 +43,64 @@ function updateClock(){
     const minutes = now.getMinutes().toString().padStart(2,0);
     const seconds = now.getSeconds().toString().padStart(2,0);
     const timestring = `${hours}:${minutes}:${seconds} ${meridiem}`;
-    document.getElementById("clock").textContent = timestring;
-}
+    let clock = document.querySelector(".clock");
+    if (clock) 
+        {clock.textContent = timestring;}
+    if(!clock) return;
+} //since other html didnt have this, stopwatch wasnt working
 
 updateClock();
 setInterval(updateClock, 1000);
 
 //PRECISION STOPWATCH 
 
+const display = document.getElementById("display");
+let timer = null;
+let startTime = 0;
+let elapsedTime = 0;
+let isRunning = false;
 
+const start = document.getElementById("startbtn");
+const reset = document.getElementById("resetbtn");
+const stop = document.getElementById("stopbtn");
+
+start.onclick = function (){
+        if(!isRunning){
+            startTime = Date.now() - elapsedTime;  //time passed in millisec since epoch 
+            timer = setInterval(update, 10);
+            isRunning = true;
+        }
+}
+
+stop.onclick = function (){
+        if(isRunning){
+            clearInterval(timer);
+            elapsedTime = Date.now() - startTime;
+            isRunning = false;
+        }
+}
+
+reset.onclick = function (){
+        clearInterval(timer);
+        startTime = 0;
+        elapsedTime = 0;
+        isRunning = false;
+        display.textContent = "00:00:00:00";
+}
+
+function update(){
+        const currentTime = Date.now();
+        elapsedTime = currentTime - startTime;
+
+        let hours = Math.floor(elapsedTime / (1000 * 60 * 60));
+        let mintutes = Math.floor(elapsedTime / (1000 * 60) % 60);
+        let seconds = Math.floor(elapsedTime / 1000 % 60);
+        let milli = Math.floor(elapsedTime % 1000 / 10);
+
+        hours = String(hours).padStart(2, "0");
+        mintutes = String(mintutes).padStart(2, "0");
+        seconds = String(seconds).padStart(2, "0");
+        milli = String(milli).padStart(2, "0");
+
+        display.textContent = `${hours}:${mintutes}:${seconds}:${milli}` 
+}

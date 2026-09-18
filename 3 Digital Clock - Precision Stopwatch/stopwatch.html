@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head> 
+
+<title> Precision Stopwatch </title>
+<style>  
+body{
+  display: flex; /* creates grid like layout*/
+  flex-direction: column;
+  align-items: center;
+  background-color: lightblue;
+}
+#myh1 {
+  font-size: 70px;
+  font-family: Verdana, Arial; /*next font is backup*/
+  color : white
+}
+#container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  border: 5px solid;
+  border-radius: 50px;
+  background-color: white;
+}
+#display{
+  font-size: 50px;
+  font-family: monospace;
+  font-weight: bold;
+  color: rgb(173, 196, 230);
+  text-shadow: 2px 2px 2px rgb(173, 150, 230);
+  margin-bottom: 25px;
+}
+#control button{
+  font-size: 30px;
+  font-weight: bold;
+  color: white;
+  padding: 10px 20px;
+  margin: 5px;
+  min-width: 125px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  /*transition: background-color 0.5s ease;      
+  /*slow transition*/
+}
+#startbtn{
+  background-color: rgb(162, 248, 33);
+}
+#startbtn:hover{
+  background-color: rgba(146, 216, 40, 0.927);
+}
+#stopbtn{
+  background-color: rgb(250, 67, 39);
+}
+#stopbtn:hover{
+  background-color: rgb(196, 47, 24, 0.927);
+}
+#resetbtn{
+  background-color: rgb(153, 103, 235);
+}
+#resetbtn:hover{
+  background-color: rgba(135, 85, 215, 0.927);
+}
+
+</style>
+</head>
+  
+<body> 
+    <h1 id="myh1"> Stopwatch </h1>
+    <div id="container">
+        <div id="display">
+            00:00:00:00
+        </div>
+        <div id="control">
+          <button id="startbtn"> Start </button>
+          <button id="stopbtn"> Stop </button>
+          <button id="resetbtn"> Reset </button>
+        </div>
+
+    </div>
+
+<script type = "module" src = "script.js"> </script>
+
+
+
+
+
+
+</body>
+</html>
+
+
+
+
+

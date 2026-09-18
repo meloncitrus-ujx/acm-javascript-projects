@@ -63,6 +63,8 @@ reset.onclick = function(){
     label.textContent = count;
 }
 
+//TEMPERATURE 
+
 const textbox = document.getElementById("textbox");
 const tofaren = document.getElementById("tofaren");
 const tocels = document.getElementById("tocels");
