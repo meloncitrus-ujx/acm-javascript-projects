@@ -1,6 +1,6 @@
 body{
   font-family: Arial;
-  background-color: whitesmoke;
+  background-color: rgb(192, 189, 189);
   margin: 0;
   display: flex;
   flex-direction: column;
@@ -34,6 +34,7 @@ button[type="submit"]:hover{
 .card{
   background: linear-gradient(180deg, rgb(107, 179, 246), rgb(239, 199, 125));
   padding: 50px;
+  border-radius: 10px;
   box-shadow: 2px 2px 5px rgb(33, 33, 33);
   min-width: 300px;
   display: flex;
