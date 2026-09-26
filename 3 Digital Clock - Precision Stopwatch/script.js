@@ -55,14 +55,19 @@ setInterval(updateClock, 1000);
 //PRECISION STOPWATCH 
 
 const display = document.getElementById("display");
+
 let timer = null;
 let startTime = 0;
 let elapsedTime = 0;
 let isRunning = false;
 
+let lastLapTime = 0; 
+let lapNum = 0 ; 
+
 const start = document.getElementById("startbtn");
 const reset = document.getElementById("resetbtn");
 const stop = document.getElementById("stopbtn");
+const lap = document.getElementById("lapbtn");
 
 start.onclick = function (){
         if(!isRunning){
@@ -80,27 +85,62 @@ stop.onclick = function (){
         }
 }
 
+lap.onclick = function (){
+    if (isRunning){
+        const currentLapTime = Date.now() - startTime;
+        const lapTime = currentLapTime - lastLapTime;
+        lapNum++; 
+
+        const totalF = formatTime(currentLapTime);
+        const lapF = formatTime(lapTime);
+
+        let lapRow = document.createElement("div");
+        lapRow.innerHTML = `
+           <span> Lap ${lapNum} </span>
+           <span> ${lapF} </span>
+           <span> ${totalF} </span>
+        `;
+        lapRow.style.fontFamily = "monospace";
+        laps.appendChild(lapRow);
+
+        lastLapTime = currentLapTime;        
+    }
+}
+
 reset.onclick = function (){
         clearInterval(timer);
         startTime = 0;
         elapsedTime = 0;
         isRunning = false;
+        lastLapTime = 0;
+        lapNum = 0;
         display.textContent = "00:00:00:00";
+        laps.innerHTML = `
+            <div class = "lap-header">
+              <span>Lap</span>            
+              <span>Lap Time</span>
+              <span>Total Time</span>
+            </div>
+        `;
 }
 
 function update(){
         const currentTime = Date.now();
         elapsedTime = currentTime - startTime;
 
-        let hours = Math.floor(elapsedTime / (1000 * 60 * 60));
-        let mintutes = Math.floor(elapsedTime / (1000 * 60) % 60);
-        let seconds = Math.floor(elapsedTime / 1000 % 60);
-        let milli = Math.floor(elapsedTime % 1000 / 10);
+        display.textContent = formatTime(elapsedTime);
+}
+
+function formatTime(time){
+        let hours = Math.floor(time / (1000 * 60 * 60));
+        let mintutes = Math.floor(time / (1000 * 60) % 60);
+        let seconds = Math.floor(time / 1000 % 60);
+        let milli = Math.floor(time % 1000 / 10);
 
         hours = String(hours).padStart(2, "0");
         mintutes = String(mintutes).padStart(2, "0");
         seconds = String(seconds).padStart(2, "0");
         milli = String(milli).padStart(2, "0");
 
-        display.textContent = `${hours}:${mintutes}:${seconds}:${milli}` 
+        return `${hours}:${mintutes}:${seconds}:${milli}` 
 }

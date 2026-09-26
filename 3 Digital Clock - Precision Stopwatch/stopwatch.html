@@ -57,11 +57,37 @@ body{
 #stopbtn:hover{
   background-color: rgb(196, 47, 24, 0.927);
 }
+#lapbtn{
+  background-color: rgb(56, 139, 246);
+}
+#lapbtn:hover{
+  background-color: rgba(30, 109, 204, 0.927);
+}
 #resetbtn{
   background-color: rgb(153, 103, 235);
 }
 #resetbtn:hover{
-  background-color: rgba(135, 85, 215, 0.927);
+  background-color: rgba(115, 72, 183, 0.927);
+}
+#laps{
+  width: 500px;
+  margin-top: 20px;
+}
+.lap-header,
+#laps div {
+    display: grid;
+    grid-template-columns: 100px 1fr 1fr;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+.lap-header {
+    font-weight: bold;
+    font-family: Verdana;
+    color:rgb(85, 84, 84);
+}
+.lap-header span,
+#laps div span {
+    text-align: center; 
 }
 
 </style>
@@ -76,16 +102,20 @@ body{
         <div id="control">
           <button id="startbtn"> Start </button>
           <button id="stopbtn"> Stop </button>
+          <button id="lapbtn"> Lap </button>
           <button id="resetbtn"> Reset </button>
+        </div>
+        <div id = "laps"> 
+            <div class = "lap-header">
+              <span>Lap</span>            <!-- so that css sees it as 3 distinct obj to be put inside grid row layout -->
+              <span>Lap Time</span>
+              <span>Total Time</span>
+            </div>
         </div>
 
     </div>
 
 <script type = "module" src = "script.js"> </script>
-
-
-
-
 
 
 </body>
