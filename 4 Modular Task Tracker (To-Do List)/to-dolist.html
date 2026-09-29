@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head> 
+<title> To-Do List </title>
+<style> 
+  body{ 
+    font-family: Arial;
+  } 
+  .todo-input-grid{
+    display: grid;
+    grid-template-columns: 200px 150px 100px;
+    column-gap: 10px; 
+    row-gap: 10px;
+    align-items: center;
+    } 
+  .todo-input-grid{
+    margin-bottom: 10px;
+    align-items: stretch;
+  }
+  .todo-grid { 
+    display: block;
+  }
+  .name-input, 
+  .due-date-input{
+  font-size: 15px;
+  padding: 6px;
+  }
+  .add-todo-button{
+    background-color: green;
+    color: white;
+    border: none;
+    font-size: 15px;
+    cursor: pointer;
+}
+.delete-todo-button{
+    background-color: darkred;
+    color: white;
+    border: none;
+    font-size: 15px;
+    cursor: pointer;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .todo-row{
+    display: grid;
+    grid-template-columns: 200px 150px 100px;
+    column-gap: 10px; 
+    row-gap: 10px;
+    align-items: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .todo-row.selected{
+    background-color: rgba(128, 128, 128, 0.25);
+    /*lightblue;*/
+  }
+.todo-row{
+  width : 500px;
+}
+
+  
+</style>
+  </head>
+  <body> 
+<p> To-Do List </p>
+  <div class = 'todo-input-grid'>
+    <input 
+      placeholder="todo name" 
+      class="js-name-input name-input"
+      onkeyup = "if(event.key=== 'Enter') addTodo();" >
+    
+      <input type ='date' class = 'js-due-date-input due-date-input' onkeyup = "if(event.key=== 'Enter') addTodo();" > 
+    
+    <button class ='add-todo-button js-add-todo-button'> Add Task </button>
+  </div>
+
+<div class = 'js-todo-list todo-grid'> </div>
+
+
+
+
+<script src ='script.js'> </script>
+
+
+
+</body>
+
+</html>
+
+
+
+
+
