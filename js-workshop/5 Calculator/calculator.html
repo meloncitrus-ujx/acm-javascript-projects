@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head> 
+
+<title> Calculator </title>
+<style>  
+body{
+  margin: 0;
+  display: flex;
+  justify-content: center; /*horizontal allignment*/
+  align-items: center; /*vertical*/
+  height: 100vh; /*100% height*/
+
+}
+#calc{
+  font-family: Arial;
+  background-color:  rgb(6, 91, 119);
+  border-radius: 15px;
+  max-width: 350px;
+  overflow: hidden;
+}
+#display{
+  width: 100%;
+  padding: 20px;
+  font-size: 50px;
+  color: white;
+  text-align: left;
+  border: none;
+  background-color: rgb(7, 142, 187);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+#keys{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /*fractional unit, each column takes equal amount of space*/
+  gap: 10px;
+  padding: 25px;
+}
+button{
+  width: 60px;
+  height: 60px;
+  border-radius: 50px;
+  border: none;
+  background-color: rgb(101, 182, 209);
+  color: white;
+  font-size: 25px;
+  font-weight: bold;
+  cursor: pointer;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  white-space: normal; /*allows text to wrap*/
+  padding: 10px; /*keeps text away from edge*/
+  box-sizing: border-box; /*ensures padding doesnt grow the button*/
+
+}
+button:hover {
+  background-color: rgb(135, 209, 234);
+}
+button:active{
+  background-color: rgb(168, 222, 240);
+} /*when u click button itll look like a flash*/
+.operator{
+  background-color: blueviolet;
+}
+.operator:hover{
+  background-color: rgb(163, 89, 231);
+}
+.operator:active{
+  background-color: rgb(172, 129, 212);
+}
+</style>
+</head>
+  
+<body> 
+    <div id="calc">
+        <input id="display" readonly> 
+        <div id="keys"> 
+            <button onclick="appendToDisplay(' + ')" class="operator">+</button>
+            <button onclick="appendToDisplay('7')">7</button>
+            <button onclick="appendToDisplay('8')">8</button>
+            <button onclick="appendToDisplay('9')">9</button>
+            <button onclick="appendToDisplay(' - ')" class="operator">-</button>
+            <button onclick="appendToDisplay('4')">4</button>
+            <button onclick="appendToDisplay('5')">5</button>
+            <button onclick="appendToDisplay('6')">6</button>
+            <button onclick="appendToDisplay(' * ')" class="operator">*</button>
+            <button onclick="appendToDisplay('1')">1</button>
+            <button onclick="appendToDisplay('2')">2</button>
+            <button onclick="appendToDisplay('3')">3</button>
+            <button onclick="appendToDisplay(' / ')" class="operator">/</button>
+            <button onclick="appendToDisplay('0')">0</button>
+            <button onclick="appendToDisplay('.')">.</button>
+            <button onclick="calculate()">=</button>
+            <button onclick="clearLast()" class="operator">DEL</button>
+            <button onclick="clearDisplay()" class="operator">C</button>
+        </div>
+    </div>
+
+
+<script src = "script.js"> </script>
+
+</body>
+</html>
+
+
+
+
+
